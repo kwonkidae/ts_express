@@ -1,5 +1,7 @@
 import * as express from "express";
 import * as mongoose from "mongoose";
+mongoose.set('debug', true);
+import { User } from './schemas/user';
 
 class App {
   public app: express.Application;
@@ -24,11 +26,12 @@ class App {
   
     db.once('open', () => {
         console.info('Mongo db connected successfully');
+        User.create({  email: "www.naver.com",
+          firstName: "kwon",
+          lastName: "kidae"}, (err: any) => { console.log("create")});
     });
     this.app.get("/", (req: express.Request, res: express.Response, next: express.NextFunction) => {
       res.send("Hello world");
-
-
     });
   }
 }
