@@ -1,0 +1,35 @@
+{
+  "name": "node_typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm-run-all -p start:server start:build",
+    "start:server": "nodemon ./dist/dev.bundle.js --watch \"./dist\"",
+    "start:build": "node ./scripts/build-dev.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mongoose": "^4.7.32",
+    "@types/node": "^9.3.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0",
+    "mocha-typescript": "^1.1.12",
+    "mongoose": "^4.12.6",
+    "nodemon": "^1.14.11",
+    "npm-run-all": "^4.1.2",
+    "ts-loader": "^3.2.0",
+    "tslint": "^5.9.1",
+    "tslint-loader": "^3.5.3",
+    "tslint-webpack-plugin": "^1.0.0",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "webpack-dev-server": "^2.11.0"
+  }
+}
