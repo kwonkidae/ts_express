@@ -1,4 +1,5 @@
-import { Document, Schema, Model, model} from "mongoose";
+import { Document, Schema, Model, model, Mongoose} from "mongoose";
+import * as mongoose from "mongoose";
 import { IUser } from "../interfaces/user";
 
 export interface IUserModel extends IUser, Document {
@@ -22,4 +23,4 @@ UserSchema.methods.fullName = function(): string {
   return (this.firstName.trim() + " " + this.lastName.trim());
 };
 
-export const User: Model<IUserModel> = model<IUserModel>("Kkdosk", UserSchema);
+export const User: Model<IUserModel> = mongoose.model<IUserModel>("Kkdosk", UserSchema);
