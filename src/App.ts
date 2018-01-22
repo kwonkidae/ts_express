@@ -16,22 +16,21 @@ class App {
     return new App();
   }
   constructor () {
-    mongoose.createConnection
     this.app = express();
-    const uri = 'mongodb://127.0.0.1:27017/lawtalk';
-    const db = mongoose.createConnection(uri, {user: 'lawdev', pass: 'fh&zjavjsl2@1B', useMongoClient: true});
-    db.on('error', (err) => {
-        if(err) throw err;
-    });
-  
-    db.once('open', () => {
-        console.info('Mongo db connected successfully');
-        User.create({  email: "www.naver.com",
-          firstName: "kwon",
-          lastName: "kidae"}, (err: any) => { console.log("create")});
-    });
+    const uri = 'mongodb://49.236.147.21:57017/startdash';
+    mongoose.connect(uri, 
+      {user: 'dev', pass: 'RmxRKwl!!', useMongoClient: true},
+      (err) => console.log(err));
     this.app.get("/", (req: express.Request, res: express.Response, next: express.NextFunction) => {
+      console.info('Mongo db connected successfully');
+      User.create({  
+          email: "www.naver.com",
+          firstName: "kwon",
+          lastName: "kidae"
+      }, (err: any) => { console.log("created")});
+
       res.send("Hello world");
+
     });
   }
 }
